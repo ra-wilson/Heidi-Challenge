@@ -9,13 +9,6 @@ Next.js prototype for a reciprocal patient-data sharing network demo.
 - Tailwind CSS
 - Zustand global state
 
-## Run
-
-```bash
-npm install
-npm run dev
-```
-
 Open http://localhost:3000.
 
 ## Demo controls
