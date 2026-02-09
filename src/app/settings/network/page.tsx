@@ -2,6 +2,7 @@
 
 import { Membership } from "@/lib/mock-data";
 import { useAppStore } from "@/lib/store";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 export default function NetworkSettingsPage() {
   const membership = useAppStore((state) => state.membership);
@@ -23,16 +24,20 @@ export default function NetworkSettingsPage() {
 
       <div>
         <label className="text-sm text-[#2F1D21]">Tier</label>
-        <select
+        <Select
           value={membership}
-          onChange={(e) => setMembership(e.target.value as Membership)}
-          className="mt-1 block w-full rounded-md border border-[#836A6C]/30 bg-white px-3 py-2 text-sm"
+          onValueChange={(value) => setMembership(value as Membership)}
         >
-          <option value="out">Out</option>
-          <option value="Basic">Basic</option>
-          <option value="Standard">Standard</option>
-          <option value="Full">Full</option>
-        </select>
+          <SelectTrigger className="mt-1">
+            <SelectValue placeholder="Select tier" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="out">Out</SelectItem>
+            <SelectItem value="Basic">Basic</SelectItem>
+            <SelectItem value="Standard">Standard</SelectItem>
+            <SelectItem value="Full">Full</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
 
       <div>
